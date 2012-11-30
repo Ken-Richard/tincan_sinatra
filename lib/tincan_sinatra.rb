@@ -9,6 +9,7 @@ require File.dirname(__FILE__) + '/base_model'
 require File.dirname(__FILE__) + '/activity'
 require File.dirname(__FILE__) + '/registration'
 require File.dirname(__FILE__) + '/state'
+require File.dirname(__FILE__) + '/actor'
 
 # Controllers
 require File.dirname(__FILE__) + '/base_controller'

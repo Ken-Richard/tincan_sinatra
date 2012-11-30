@@ -48,7 +48,7 @@ module TincanSinatra
 		##
 		def process(controller_class)
 			response = controller_class.new(tincan_params).send(tincan_verb)
-			puts "#{controller_class.name}:#{tincan_verb}"
+			puts "*** #{controller_class.name}:#{tincan_verb}"
 			ap response
 			response ? response.to_json : ""
 		end
@@ -72,6 +72,7 @@ module TincanSinatra
 
 		  # Handle the options http verb
 		  if request.request_method == 'OPTIONS'
+		  	puts "*** OPTIONS ***"
 		    halt 200
 		    return
 		  end

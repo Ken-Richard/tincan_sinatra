@@ -46,6 +46,17 @@ module TincanSinatra
 			params['stateId'][0]
 		end
 
+		## Actor
+		def actor
+			content = JSON.parse(params['content'][0])
+			Actor.new(content['actor'])
+		end
+
+		def verb
+			content = JSON.parse(params['content'][0])
+			content['verb']
+		end
+
 	end
 end
 

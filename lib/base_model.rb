@@ -4,11 +4,13 @@ module TincanSinatra
 		def self.find(id)
 			@objects = {} unless @objects
 			o = @objects[id]
-			unless o
-				o = factory_create
-				@objects[id] = o
-			end
+			puts "CANNOT FIND ID=#{id}" unless o
 			o
+		end
+
+		def self.store(id,o)
+			@objects = {} unless @objects
+			@objects[id] = o
 		end
 
 	end

@@ -32,18 +32,26 @@ module TincanSinatra
 
 		## Registration
 		def registration_id
-			params["registration"][0]
+			p = params["registration"]
+			p.kind_of?(Array) ? p[0] : p
 		end
 
 		def registration
 			unless @registration
 				@registration = Registration.find(registration_id)
 			end
+			@registration
 		end
 
 		## State ID
 		def state_id
-			params['stateId'][0]
+			p = params['stateId']
+			p.kind_of?(Array) ? p[0] : p
+		end
+
+		def content
+			p = params['content']
+			p.kind_of?(Array) ? p[0] : p
 		end
 
 		## Actor

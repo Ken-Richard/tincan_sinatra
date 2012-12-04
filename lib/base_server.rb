@@ -47,10 +47,18 @@ module TincanSinatra
 		## Process a Request
 		##
 		def process(controller_class)
-			response = controller_class.new(tincan_params).send(tincan_verb)
-			puts "*** #{controller_class.name}:#{tincan_verb}"
-			ap response
-			response ? response.to_json : ""
+			begin
+				#puts "*** #{controller_class} - #{tincan_verb} *** #{request.url}"
+				response = controller_class.new(tincan_params).send(tincan_verb)
+				status 204 if ['put','delete'].include?(tincan_verb)
+				response ? response.to_json : ""
+			rescue MissingArgumentException
+				halt 400
+			rescue NotFoundException
+				halt 404
+			rescue MethodNotAllowedException
+				halt 405
+			end
 		end
 
 
@@ -62,8 +70,6 @@ module TincanSinatra
 		##
 		before do
 
-			3.times { puts }
-
 			# Cross Origin Support
 		  response["Access-Control-Allow-Origin"] = "http://s3.amazonaws.com"
 		  response["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE}.join(",")
@@ -72,7 +78,6 @@ module TincanSinatra
 
 		  # Handle the options http verb
 		  if request.request_method == 'OPTIONS'
-		  	puts "*** OPTIONS ***"
 		    halt 200
 		    return
 		  end

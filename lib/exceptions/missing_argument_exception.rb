@@ -1,4 +1,4 @@
 module TincanSinatra
-	class MissingArgumentException < Exception
-	end
+  class MissingArgumentException < Exception
+  end
 end

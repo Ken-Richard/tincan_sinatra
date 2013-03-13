@@ -1,4 +1,4 @@
 module TincanSinatra
-	class MethodNotAllowedException < Exception
-	end
+  class MethodNotAllowedException < Exception
+  end
 end

@@ -28,7 +28,7 @@ describe 'API Basics' do
 
       TincanSinatra::Registration.register('9999999999')
 
-    	# GET - IE Style
+      # GET - IE Style
       post "/TCAPI/activities/state?method=GET&registration=1", "registration" => "9999999999"
       last_response.should be_ok
 
@@ -103,7 +103,7 @@ describe 'The State API' do
         'registration' => '12345',
         'stateId' => 'key1'
       }
-      last_response.status.should eq(204)      
+      last_response.status.should eq(204)
       @registration.state(nil).should eq(['key2'])
     end
 
@@ -114,7 +114,7 @@ describe 'The State API' do
       post "/TCAPI/activities/state?method=DELETE", {
         'registration' => '12345'
       }
-      last_response.status.should eq(204)      
+      last_response.status.should eq(204)
       @registration.state(nil).should eq([])
     end
 
@@ -125,7 +125,7 @@ end
 
 
 describe 'The Statement API' do
-  
+
   include Rack::Test::Methods
 
   def app
@@ -141,7 +141,7 @@ describe 'The Statement API' do
     content = {
 
     }
-    
+
     post "/TCAPI/activities/state?method=DELETE", {
       'registration' => '12345',
 

@@ -1,15 +1,15 @@
 require File.dirname(__FILE__) + '/base_model'
 
 module TincanSinatra
-	class Actor
+  class Actor
 
-		def initialize(data)
-			@data = data
-		end
+    def initialize(data)
+      @data = data
+    end
 
-		def name
-			@data["name"]
-		end
+    def name
+      @data["name"]
+    end
 
-	end
+  end
 end

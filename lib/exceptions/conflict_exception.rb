@@ -1,4 +1,4 @@
 module TincanSinatra
-	class NotFoundException < Exception
-	end
+  class NotFoundException < Exception
+  end
 end

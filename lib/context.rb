@@ -1,6 +1,6 @@
 module TincanSinatra
-	class Controller
+  class Controller
 
 
-	end
+  end
 end

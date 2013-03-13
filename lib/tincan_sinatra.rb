@@ -21,30 +21,30 @@ require File.dirname(__FILE__) + '/state_controller'
 
 module TincanSinatra
 
-	class Server < BaseServer
+  class Server < BaseServer
 
-		register Sinatra::MultiRoute
+    register Sinatra::MultiRoute
 
-		# TEST REGISTRATION
-		Registration.store('b9855f24-2140-4fb8-931d-2a37cf412c2e', Registration.new)
-
-
-		##
-		## STATEMENTS
-		##
-		route :get, :post, :put, '/TCAPI/statements/' do
-			content_type 'application/json'
-			process(StatementController)
-		end
+    # TEST REGISTRATION
+    Registration.store('b9855f24-2140-4fb8-931d-2a37cf412c2e', Registration.new)
 
 
-		##
-		## ACTIVITIES
-		##
-		route :get, :post, :put, :delete, '/TCAPI/activities/state' do
-			content_type 'application/json'
-			process(StateController)
-		end
+    ##
+    ## STATEMENTS
+    ##
+    route :get, :post, :put, '/TCAPI/statements/' do
+      content_type 'application/json'
+      process(StatementController)
+    end
 
-	end
+
+    ##
+    ## ACTIVITIES
+    ##
+    route :get, :post, :put, :delete, '/TCAPI/activities/state' do
+      content_type 'application/json'
+      process(StateController)
+    end
+
+  end
 end

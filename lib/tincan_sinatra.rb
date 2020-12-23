@@ -22,17 +22,16 @@ require File.dirname(__FILE__) + '/state_controller'
 module TincanSinatra
 
   class Server < BaseServer
-
+    helpers Sinatra::CustomLogger
     register Sinatra::MultiRoute
 
     # TEST REGISTRATION
     Registration.store('b9855f24-2140-4fb8-931d-2a37cf412c2e', Registration.new)
 
-
     ##
     ## STATEMENTS
     ##
-    route :get, :post, :put, '/TCAPI/statements/' do
+    route :get, :post, :put, '/TCAPI/statements' do
       content_type 'application/json'
       process(StatementController)
     end

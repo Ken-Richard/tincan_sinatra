@@ -48,7 +48,7 @@ module TincanSinatra
     ##
     def process(controller_class)
       begin
-        #puts "*** #{controller_class} - #{tincan_verb} *** #{request.url}"
+        puts "*** #{controller_class} - #{tincan_verb} *** #{request.url}"
         response = controller_class.new(tincan_params).send(tincan_verb)
         status 204 if ['put','delete'].include?(tincan_verb)
         response ? response.to_json : ""

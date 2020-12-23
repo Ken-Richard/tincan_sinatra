@@ -22,7 +22,6 @@ require File.dirname(__FILE__) + '/state_controller'
 module TincanSinatra
 
   class Server < BaseServer
-    helpers Sinatra::CustomLogger
     register Sinatra::MultiRoute
 
     # TEST REGISTRATION
